@@ -1,0 +1,307 @@
+<!-- ***** Main Banner Area Start ***** -->
+<div class="main-banner" id="top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="left-content">
+          <div class="thumb">
+            <div class="inner-content">
+              <h4>We Are Hexashop</h4>
+              <!-- <span>Awesome, clean &amp; creative HTML5 Template</span> -->
+              <div class="main-border-button">
+                <a routerLink="/product-list">Purchase Now!</a>
+              </div>
+            </div>
+            <img src="../banner/left-banner-image.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="right-content">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="right-first-image">
+                <div class="thumb">
+                  <div class="inner-content">
+                    <h4>Women</h4>
+                    <span>Best Clothes For Women</span>
+                  </div>
+                  <div class="hover-content">
+                    <div class="inner">
+                      <h4>Women</h4>
+                      <p>discover more about best Women's clothes</p>
+                      <div class="main-border-button">
+                        <a (click)="filterPerCtegory(1)">Discover More</a>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="../banner/baner-right-image-01.jpg" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-first-image">
+                <div class="thumb">
+                  <div class="inner-content">
+                    <h4>Men</h4>
+                    <span>Best Clothes For Men</span>
+                  </div>
+                  <div class="hover-content">
+                    <div class="inner">
+                      <h4>Men</h4>
+                      <p>discover more about best men's clothes</p>
+                      <div class="main-border-button">
+                        <a (click)="filterPerCtegory(2)">Discover More</a>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="../banner/baner-right-image-02.jpg" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-first-image">
+                <div class="thumb">
+                  <div class="inner-content">
+                    <h4>Kids</h4>
+                    <span>Best Clothes For Kids</span>
+                  </div>
+                  <div class="hover-content">
+                    <div class="inner">
+                      <h4>Kids</h4>
+                      <p>discover more about best Kid's clothes</p>
+                      <div class="main-border-button">
+                        <a (click)="filterPerCtegory(3)">Discover More</a>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="../banner/baner-right-image-03.jpg" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-first-image">
+                <div class="thumb">
+                  <div class="inner-content">
+                    <h4>Accessories</h4>
+                    <span>Best Trend Accessories</span>
+                  </div>
+                  <div class="hover-content">
+                    <div class="inner">
+                      <h4>Accessories</h4>
+                      <p>Discover latest models in accessories world</p>
+                      <div class="main-border-button">
+                        <a (click)="filterPerCtegory(4)">Discover More</a>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="../banner/baner-right-image-04.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
+<!-- ***** Men Area Starts ***** -->
+<section class="section" id="men">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h2>Latest Products</h2>
+          <span
+            >Details to details is what makes Hexashop different from the other
+            themes.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="carouselExample" class="men-item-carousel carousel slide">
+          <div class="owl-men-item owl-carousel carousel-inner">
+            @for (carElem of carouselElement; track $index) {
+            <div class="carousel-item" [ngClass]="{ active: $index == 0 }">
+              <div class="row">
+                @for (item of carElem; track $index) {
+                <div class="col-md-3 mb-3">
+                  <a [routerLink]="['product', item.id]">
+                    <div class="card">
+                      <img
+                        [src]="item.prodPhoto"
+                        class="img-fluid"
+                        alt="100%x280"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">{{ item.name }}</h4>
+                        <p class="card-text">
+                          {{ item.price }} $
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                }
+              </div>
+            </div>
+            }
+          </div>
+          <div class="owl-nav">
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- about us -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="left-content">
+          <h2>Explore Our Products</h2>
+          <span
+            >Our goal is to make fashion accessible for everyone, where trends
+            meet affordability. With our wide selection of clothing, footwear
+            and accessories, Our Collection translates the latest runway trends
+            into wearable outfits for every style, occasion and budget.</span
+          >
+          <div class="quote">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Our lines range from a glamorous party selection (Party) and a
+              casual jeans collection (Denim) to modest fashion looks (Modest)
+              and a plus size collection (Curve).
+            </p>
+          </div>
+
+          <p>
+            Our Collection lets you embrace your unique style from casual &
+            relaxed to elegant & stylish with on-trend fashion pieces for women,
+            men and kids.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="right-content">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="leather">
+                <h4>Leather Bags</h4>
+                <span>Latest Collection</span>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="first-image">
+                <img src="../explore-image-01.jpg" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="second-image">
+                <img src="../explore-image-02.jpg" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="types">
+                <h4>Different Types</h4>
+                <span>Over 304 Products</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- about us End-->
+<!-- ***** Men Area Ends ***** -->
+<!-- slider -->
+<!-- <div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../kid-01.jpg" class="d-block w-100" alt="..." />
+    </div>
+    <div class="carousel-item">
+      <img src="../kid-02.jpg" class="d-block w-100" alt="..." />
+    </div>
+    <div class="carousel-item">
+      <img src="../kid-03.jpg" class="d-block w-100" alt="..." />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+<!-- slider End-->

@@ -1,0 +1,70 @@
+<!-- <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+    <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+        <div class="icon p-2 me-2">
+            <img class="img-fluid" src="../icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+        </div>
+        <h1 class="m-0 text-primary">RealState</h1>
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto">
+            <a href="index.html" class="nav-item nav-link active">Home</a>
+             <a routerLink="/admin" class="nav-item nav-link active">admin</a>
+        </div>
+        <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+    </div>
+</nav> -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <a routerLink=""  class="logo">
+            <img src="../logo.png" />
+          </a>
+          <ul class="nav">
+            <!-- search  -->
+            <li>
+              <div class="search-bar">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search..."
+                    [(ngModel)]="searchText"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                  />
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="search-addon"
+                    (click)="searchProduct()"
+                  >
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <!-- search  END-->
+            <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a routerLink="product-list"  routerLinkActive="active">Products</a></li>
+            <!-- <li><a routerLink="product-crud">add-product</a></li> -->
+
+            <!-- <li><a routerLink="/admin">admin</a></li> -->
+            <li>
+              <a routerLink="/customersign" routerLinkActive="active"><i class="fa fa-user"></i></a>
+            </li>
+            <li>
+              <a routerLink="cart" routerLinkActive="active"
+                ><i class="fa fa-shopping-cart"></i>({{ cartService.count }})</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

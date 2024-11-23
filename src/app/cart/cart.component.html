@@ -1,0 +1,120 @@
+@if (cartService.cartList.length<=0) {
+<div class="container">
+  <div class="row">
+    <p>cart is empty</p>
+  </div>
+</div>
+}@else {
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">category</th>
+            <th scope="col">price</th>
+            <th scope="col">qty</th>
+            <th scope="col">prodPhoto</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of cartService.cartList; track $index){
+          <tr>
+            <th scope="row">{{ $index }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.categoryName }}</td>
+            <td>{{ item.price }}$</td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="offset-md-2 m-2">
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max="5"
+                    [(ngModel)]="item.qty"
+                  />
+                </div>
+              </div>
+            </td>
+            <td>
+              <img [src]="item.prodPhoto" alt="" width="50px" height="50px" />
+            </td>
+            <td>
+              <i class="fa fa-trash fa-lg m-1" (click)="onDeleteCart(item)"></i>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      <div class="d-flex mt-2">
+        <button type="button" class="btn btn-primary" (click)="preview()">
+          CheckOut
+        </button>
+      </div>
+    </div>
+
+    <div class="col-4"></div>
+  </div>
+</div>
+
+}
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">category</th>
+            <th scope="col">price</th>
+            <th scope="col">qty</th>
+            <th scope="col">prodPhoto</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of cartService.cartList; track $index){
+          <tr>
+            <th scope="row">{{ $index }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.categoryName }}</td>
+            <td>{{ item.price }}$</td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="offset-md-2 m-2">
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max="5"
+                    [(ngModel)]="item.qty"
+                  />
+                </div>
+              </div>
+            </td>
+            <td>
+              <img [src]="item.prodPhoto" alt="" width="50px" height="50px" />
+            </td>
+            <td>
+              <i class="fa fa-trash fa-lg m-1" (click)="onDeleteCart(item)"></i>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4">
+      <b>Order summary</b>
+      <div>
+        <span>Total Price</span><span>{{totalPrice}}</span>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,17 @@
+<div class="catList-area mb-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="catList-nav">
+          <ul class="catList m-0 d-flex justify-content-center">
+            @for (item of categoryList; track $index) {
+            <li>
+              <a [routerLink]="['cate/', item.id]">{{ item.name }}</a>
+            </li>
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,289 @@
+@if (cartList.length>0) {
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <button
+        type="button"
+        class="btn btn-primary mb-2 btn-hidden"
+        data-bs-toggle="modal"
+        data-bs-target="#checkoutModal"
+        #checkoutModal
+      ></button>
+
+      <section class="payment-sec">
+        <div class="container">
+          <div class="row content">
+            <div class="col-lg-7 bg wow fadeInRight" data-wow-duration="1.0s">
+              <!-- Form starts -->
+              <form #myForm="ngForm" novalidate>
+                <!-- Gender -->
+                <div class="group-gap">
+                  <h5 class="mb-3">Payment</h5>
+                  <p>Please select a payment method</p>
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio form-check">
+                      <input
+                        id="credit"
+                        type="radio"
+                        class="custom-control-input"
+                        value="credit"
+                        name="paymentMethod"
+                        [(ngModel)]="paymentMethod"
+                        required
+                       checked
+                      />
+                      <label class="custom-control-label" for="credit">
+                        <div class="input-info">
+                          <img src="../icon/Group 1334.png" alt="" />
+                          <span>Credit</span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="custom-control custom-radio form-check">
+                      <input
+                        id="paypal"
+                        type="radio"
+                        class="custom-control-input"
+                        value="paypal"
+                        name="paymentMethod"
+                        [(ngModel)]="paymentMethod"
+                        required
+                      />
+
+                      <label class="custom-control-label" for="paypal">
+                        <div class="input-info">
+                          <img src="../icon/Group 4833.png" alt="" />
+                          <span>PayPal</span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="custom-control custom-radio form-check">
+                      <input
+                        id="cashOnDelivery"
+                        type="radio"
+                        class="custom-control-input"
+                        value="cashOnDelivery"
+                        name="paymentMethod"
+                        [(ngModel)]="paymentMethod"
+                        required
+                      />
+
+                      <label class="custom-control-label" for="cashOnDelivery">
+                        <div class="input-info">
+                          <img src="../icon/Group 4578.png" alt="" />
+                          <span>Cash On Delivery</span>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="isSubmittedPayMethod && myForm.invalid"
+                    >
+                      <p>Please select either value</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+              </form>
+              <!-- Form ends -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-4">
+      <b>Total Summary:</b>
+      <div class="d-flex justify-content-between">
+        <div class="">
+          <p>Sub Price</p>
+          <p>shipping</p>
+          <p>Total Price</p>
+        </div>
+        <div>
+          <p>{{ subPrice }} SAR</p>
+          <p>{{ shipping }} SAR</p>
+          <p>{{ totalPrice }} SAR</p>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary m-1" (click)="placeOrder()">
+        place order
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="checkoutModal"
+  tabindex="-1"
+  aria-labelledby="checkoutModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop='static'
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="checkoutModalLabel">
+           New Product
+        </h1> -->
+        <!-- <button
+          type="button"
+          class="btn-close btn-hidden"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          
+        ></button> -->
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form [formGroup]="ckeckoutForm">
+              <div class="form-group mb-2">
+                <label>Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                />
+
+                <div
+                  *ngIf="submitted && f['name'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['name'].errors['required']">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-2">
+                <label>Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="address"
+                  [ngClass]="{ 'is-invalid': submitted && f['address'].errors }"
+                />
+
+                <div
+                  *ngIf="submitted && f['address'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['address'].errors['required']">
+                    Address is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-2">
+                <label>State</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="state"
+                  [ngClass]="{ 'is-invalid': submitted && f['state'].errors }"
+                />
+
+                <div
+                  *ngIf="submitted && f['state'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['state'].errors['required']">
+                    state is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label>city</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"
+                />
+
+                <div
+                  *ngIf="submitted && f['city'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['city'].errors['required']">
+                    city is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group mb-2 col-2">
+                  <label>zipCode</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="zipCode"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['zipCode'].errors
+                    }"
+                  />
+
+                  <div
+                    *ngIf="submitted && f['zipCode'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['zipCode'].errors['required']">
+                      zipCode is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mb-2 col-10">
+                  <label>contact</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="contact"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['contact'].errors
+                    }"
+                  />
+
+                  <div
+                    *ngIf="submitted && f['contact'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['contact'].errors['required']">
+                      contact is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary btn-hidden"
+          data-bs-dismiss="modal"
+          #closeCheckoutModel
+        >
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="getOrderInfo()"
+          [disabled]="!ckeckoutForm.valid"
+        >
+          save and continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}

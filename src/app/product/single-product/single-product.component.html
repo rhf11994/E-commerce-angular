@@ -1,0 +1,29 @@
+@if (product) {
+<section class="section" id="product">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="left-images">
+          <img [src]="product.prodPhoto" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="right-content">
+
+
+          <h4>{{ product.name }}</h4>
+          <h6>{{ product.categoryName }}</h6>
+          <span class="price">$ {{ product.price }}</span>
+
+          <span>{{ product.description }}</span>
+          <div class="quantity-content total">
+            <div class="main-border-button"><a (click)="addToCart(product)"
+              >Add To Cart</a></div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}
