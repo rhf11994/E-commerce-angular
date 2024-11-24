@@ -31,7 +31,7 @@ Open two terminal/command prompt
 In one run command: ng serve
 
 ### Step 10:
-Another one run command: json-server --watch mock-api-data.json
+Another one run command: json-server --watch db.json
 
 Now you can ready to go
 
